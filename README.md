@@ -72,7 +72,7 @@ The SPA consumes a REST API. The API authenticates with JWT, maps to the existin
 ```bash
 # 1) Backend (.NET API) — http://localhost:3000/api
 cd 03_Desarrollo/backend-dotnet
-#   configure the connection string & JWT secret in appsettings.json (or env vars)
+#   dev JWT secret is in appsettings.Development.json; in production set the Jwt__Secret env var
 dotnet run
 
 # 2) Frontend (React) — http://localhost:5173
@@ -174,7 +174,7 @@ MIT — see [LICENSE](LICENSE).
 ```bash
 # 1) Backend (.NET) — http://localhost:3000/api
 cd 03_Desarrollo/backend-dotnet
-#   configura la cadena de conexión y el secreto JWT en appsettings.json (o variables de entorno)
+#   el secreto JWT de desarrollo está en appsettings.Development.json; en producción usa la variable Jwt__Secret
 dotnet run
 
 # 2) Frontend (React) — http://localhost:5173

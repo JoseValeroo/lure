@@ -31,6 +31,10 @@ builder.Services.AddScoped<INotificationService, NotificationService>();
 
 // Autenticación JWT.
 var jwt = builder.Configuration.GetSection("Jwt");
+// El secreto no va en appsettings.json: en local sale de appsettings.Development.json
+// y en producción de la variable de entorno Jwt__Secret.
+if (string.IsNullOrWhiteSpace(jwt["Secret"]))
+    throw new InvalidOperationException("Falta Jwt:Secret. Defínelo con la variable de entorno Jwt__Secret.");
 builder.Services
     .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
